@@ -6,7 +6,7 @@
 <br />
 
 ## Soal 1
-> Seorang peneliti melakukan penelitian mengenai pengaruh aktivitas 𝐴 terhadap kadar saturasi oksigen pada manusia. Peneliti tersebut mengambil sampel sebanyak 9 responden. Pertama, sebelum melakukan aktivitas 𝐴, peneliti mencatat kadar saturasi oksigen dari 9 responden tersebut. Kemudian, 9 responden tersebut diminta melakukan aktivitas 𝐴. Setelah 15 menit, peneliti tersebut mencatat kembali kadar saturasi oksigen dari 9 responden tersebut. Berikut data dari 9 responden mengenai kadar saturasi oksigen sebelum dan sesudah melakukan aktivitas 𝐴
+Seorang peneliti melakukan penelitian mengenai pengaruh aktivitas 𝐴 terhadap kadar saturasi oksigen pada manusia. Peneliti tersebut mengambil sampel sebanyak 9 responden. Pertama, sebelum melakukan aktivitas 𝐴, peneliti mencatat kadar saturasi oksigen dari 9 responden tersebut. Kemudian, 9 responden tersebut diminta melakukan aktivitas 𝐴. Setelah 15 menit, peneliti tersebut mencatat kembali kadar saturasi oksigen dari 9 responden tersebut. Berikut data dari 9 responden mengenai kadar saturasi oksigen sebelum dan sesudah melakukan aktivitas 𝐴
 
 ![soal 1](https://user-images.githubusercontent.com/70510279/170801862-fb8feada-e470-4bdd-90c8-2b1b050563ca.jpg)
 
@@ -17,43 +17,24 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
     Langkah pertama penyelesaian adalah memasukkan semua data yang ada pada tabel pada sebuah variabel sebagai berikut
 
         ```
-         # Poin 1a
-          before <- c(78, 75, 67, 77, 70, 72, 28, 74, 77)
-          after <- c(100, 95, 70, 90, 90, 90, 89, 90, 100)
-
+         orang.ke = c(seq(1:9))
+         oksigen.sebelum = c(78, 75, 67, 77, 70, 72, 78, 74, 77)
+         oksigen.sesudah = c(100, 95, 70, 90, 90, 90, 89, 90, 100)
+         data = data.frame(orang.ke,oksigen.sebelum, oksigen.sesudah)
+         n = 9
         ```  
 
-    Setelah dimasukkan semua datanya, maka dilakukan cek data menggunakan `data.frame` yaitu
-
-        ```
-          my_data <- data.frame(
-              group = rep(c("before", "after"), each = 9),
-              saturation = c(before, after)
-          )
-        ```
-
-    Setelah itu dilihat hasil framenya sebagai berikut:
-
-        ```R
-          print(my_data)
-        ```
-
-    <img width="435" alt="image" src="https://user-images.githubusercontent.com/86004023/170858094-792f1a04-8114-4add-80cf-c51cdc4fcd86.png">
-
     Selanjutnya mencari standar deviasinya. Standar deviasi sebelum dan sesudah aktivitas adalah
-    
-      ```
-          # Standar Devisiasi before activity
-          SD_before <- sd(before)
-          SD_before
-          
-           # Standar Devisiasi after activity
-           SD_after <-sd(after)
-           SD_after
-       ```         
-     Maka hasilnya : 
 
-     <img width="347" alt="image" src="https://user-images.githubusercontent.com/86004023/170858149-b2e4b403-f4a1-4515-97bd-e990edcbd699.png">
+        ```
+         selisih = data$oksigen.sesudah - data$oksigen.sebelum
+         cat("Standar deviasi selisih pasangan pengamatan : ")
+         standardev = sd(selisih)
+         standardev
+        ```
+
+      <img width="1267" alt="image" src="https://user-images.githubusercontent.com/78538191/170873225-e9153b09-ea51-4ab7-b32b-d15638f431ec.png"> 
+    
 
 </br>
 
@@ -89,11 +70,11 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
 </br>
 
 ## Soal 2
-> Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahun. Untuk menguji klaim ini, 100 pemilik mobil yang dipilih secara acak diminta untuk mencatat jarak yang mereka tempuh. Jika sampel acak menunjukkan rata-rata 23.500 kilometer dan standar deviasi 3900 kilometer. (Kerjakan menggunakan 2 library seperti referensi pada modul).
+Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahun. Untuk menguji klaim ini, 100 pemilik mobil yang dipilih secara acak diminta untuk mencatat jarak yang mereka tempuh. Jika sampel acak menunjukkan rata-rata 23.500 kilometer dan standar deviasi 3900 kilometer. (Kerjakan menggunakan 2 library seperti referensi pada modul).
 
   - A. Apakah Anda setuju dengan klaim tersebut?
 
-    Setuju, karena
+    Setuju, karena uji z menolak H0
     
     <img width="223" alt="image" src="https://user-images.githubusercontent.com/86004023/170864898-71408114-19ec-4d85-92af-c91e08e90283.png">
     
@@ -129,7 +110,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
        </br>
   
 ## Soal 3
-> Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.
+Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.
 
  ![image](https://user-images.githubusercontent.com/70510279/170834251-73d308da-69c9-4e86-b2b8-4917e598efae.png)
  
