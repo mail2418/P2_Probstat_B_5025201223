@@ -217,14 +217,23 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
 > Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing.
 
    Jika : diketahui dataset https://intip.in/datasetprobstat1
+   
+   <img width="65" alt="image" src="https://user-images.githubusercontent.com/86004023/170869855-f39c2cbd-234f-49aa-9dbe-1402cd438b39.png">
+
    H0 : Tidak ada perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama
 
    Maka Kerjakan atau Carilah: 
+   
     A. Buatlah masing masing jenis spesies menjadi 3 subjek "Grup" (grup 1, grup 2, grup 3). Lalu Gambarkan plot kuantil normal untuk setiap kelompok dan lihat apakah ada outlier utama dalam homogenitas varians.
+    
     B. Carilah atau periksalah Homogeneity of variances nya , Berapa nilai p yang didapatkan? Apa hipotesis dan kesimpulan yang dapat diambil?
+    
     C. Untuk uji ANOVA (satu arah), buatlah model linier dengan Panjang versus Grup dan beri nama model tersebut model 1.
+    
     D. Dari Hasil Poin C, Berapakah nilai-p ? , Apa yang dapat Anda simpulkan dari H0?
+    
     E. Verifikasilah jawaban model 1 dengan Post-hoc test Tukey HSD, dari nilai p yang didapatkan apakah satu jenis kucing lebih panjang dari yang lain? Jelaskan.
+    
     F. Visualisasikan data dengan ggplot2
     
    </br>
@@ -350,6 +359,9 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
         
         ```
         install.packages("multcompView")
+        install.packages("ggplot2")
+        install.packages("readr")
+        install.packages("dplyr")
         library(readr)
         library(ggplot2)
         library(multcompView)
@@ -363,7 +375,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
         head(GTL)
         ```
         
-        ![image](https://user-images.githubusercontent.com/70510279/170851339-6020c531-8d07-4a20-a9ab-4db04a1110e0.png)
+        <img width="905" alt="image" src="https://user-images.githubusercontent.com/86004023/170869335-af14ad73-5ced-415e-b45c-973564029064.png">
 
         Lakukan observasi pada data
         
@@ -371,7 +383,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
         str(GTL)
         ```
         
-        ![image](https://user-images.githubusercontent.com/70510279/170851373-4512e70e-81ed-4a12-bf5e-5408d4403678.png)
+        <img width="729" alt="image" src="https://user-images.githubusercontent.com/86004023/170869363-1aeb4d72-a0f3-4024-a8ef-c4783fd6127b.png">   
         
         </br>
 
@@ -382,8 +394,8 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
           facet_grid(.~Glass, labeller = label_both)
         ```
         
-        ![image](https://user-images.githubusercontent.com/70510279/170851403-3b91fe4f-ab41-4b3e-8aca-066a27607971.png)
-
+        <img width="997" alt="Screen Shot 2022-05-29 at 19 45 00" src="https://user-images.githubusercontent.com/86004023/170869408-fbadc3d5-a4d9-47eb-8598-5099ad19058f.png">
+        
         </br>
         
    - B. Lakukan uji ANOVA dua arah
@@ -396,8 +408,8 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
         str(GTL)
         ```
         
-        ![image](https://user-images.githubusercontent.com/70510279/170851438-509ae870-a9a1-420e-adb9-3239f6a6dfb6.png)
-
+        <img width="701" alt="image" src="https://user-images.githubusercontent.com/86004023/170869474-c9773f49-7f83-4589-887c-4092a289147e.png">
+        
         </br>
 
         Selanjutnya melakukan analisis of variance (aov) yaitu sebagai berikut 
@@ -407,7 +419,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
         summary(anova)
         ```
         
-        ![image](https://user-images.githubusercontent.com/70510279/170851507-b318c577-8c71-4a3c-b391-1c406e364abb.png)
+        <img width="570" alt="image" src="https://user-images.githubusercontent.com/86004023/170869510-97c2a8c9-d482-40a9-a0de-4e452c611aad.png">  
         
    - C. Tampilkan tabel dengan mean dan standar deviasi keluaran cahaya untuk setiap perlakuan (kombinasi kaca pelat muka dan suhu operasi)
         
@@ -419,8 +431,8 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
             arrange(desc(mean))
           print(data_summary)
           ```
-        ![image](https://user-images.githubusercontent.com/70510279/170851578-fee77749-6fff-4abf-ad36-62ef2ec84c3d.png)
-
+        <img width="817" alt="image" src="https://user-images.githubusercontent.com/86004023/170869545-0426a637-abd9-4201-8ea7-197c9fe16d66.png">
+        
         </br>
         
      - D. Lakukan uji Tukey
@@ -431,8 +443,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
           print(tukey)
           ```
           
-          ![image](https://user-images.githubusercontent.com/70510279/170851658-f097be04-5017-404e-99b6-0ebdebb284d9.png)
-          ![image](https://user-images.githubusercontent.com/70510279/170851669-260742aa-75b0-47e2-9d8a-dabf318b5082.png)
+          <img width="387" alt="image" src="https://user-images.githubusercontent.com/86004023/170869613-cdba8e46-27d2-4c13-b542-0b1130b3310b.png">
 
      - E. Gunakan compact letter display untuk menunjukkan perbedaan signifikan antara uji Anova dan uji Tukey
 
@@ -443,8 +454,8 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
           print(tukey.cld)
           ```
           
-          ![image](https://user-images.githubusercontent.com/70510279/170851727-729875df-5aaf-4897-b97f-08b91127347e.png)
-
+          <img width="583" alt="image" src="https://user-images.githubusercontent.com/86004023/170869674-ada599a1-38f7-4218-bb79-e541974fb218.png">
+          
           </br>
           
           Tambahkan compact letter display tersebut ke tabel dengan means(rata-rata) dan sd
@@ -455,7 +466,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
           print(data_summary)
           ```
           
-          ![image](https://user-images.githubusercontent.com/70510279/170851749-d1e4fd97-1020-4f52-bb1a-7d020a508093.png)
-
+          <img width="640" alt="image" src="https://user-images.githubusercontent.com/86004023/170869690-a2fac8aa-9f59-4a44-9c8f-b983e1cb07dd.png">
+          
 # Referensi :
   - 
